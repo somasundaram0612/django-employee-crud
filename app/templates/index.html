@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Employee</title>
+    {% load static %}
+</head>
+
+<body>
+<center>
+    <h2>Enter Employee Details</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <p>Employee ID:</p> {{ form.e_id }}
+        <p>Name:</p> {{ form.e_name }}
+        <p>Age:</p> {{ form.e_age }}
+        <p>Email:</p> {{ form.e_email }}
+        <p>Contact:</p> {{ form.e_contact }}
+        <p>Description:</p> {{ form.e_description }}
+        <p>Image:</p> {{ form.e_img }}
+
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+</center>
+</body>
+</html>

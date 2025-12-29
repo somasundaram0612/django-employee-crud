@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Employee</title>
+</head>
+
+<body>
+
+<form method="POST" action="/update/{{ employee.id }}/" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <h3>Update Employee Details</h3>
+
+    <p>Employee ID:</p>
+    <input type="text" name="e_id" value="{{ employee.e_id }}">
+
+    <p>Employee Name:</p>
+    <input type="text" name="e_name" value="{{ employee.e_name }}">
+
+    <p>Employee Age:</p>
+    <input type="number" name="e_age" value="{{ employee.e_age }}">
+
+    <p>Employee Email:</p>
+    <input type="email" name="e_email" value="{{ employee.e_email }}">
+
+    <p>Employee Contact:</p>
+    <input type="text" name="e_contact" value="{{ employee.e_contact }}">
+
+    <p>Employee Description:</p>
+    <input type="text" name="e_description" value="{{ employee.e_description }}">
+
+    <p>Employee Image:</p>
+    {% if employee.e_img %}
+        <img src="{{ employee.e_img.url }}" width="100"><br>
+    {% endif %}
+    <input type="file" name="e_img">
+
+    <br><br>
+    <button type="submit">Update</button>
+</form>
+
+</body>
+</html>

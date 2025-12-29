@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+    <head>
+    
+        <meta charset="UTF-8">
+    
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>Employee Record</title>
+    
+        {% load static %}
+    
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    </head>
+
+
+    <body>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Employee ID</th>
+
+                    <th>Employee Name</th>
+
+                    <th>Employee Age</th>
+
+                    <th>Employee Email</th>
+
+                    <th>Employee Contact</th>
+
+                    <th>Employee Description</th>
+
+                    <th>Employee Image</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for employee in employees %}
+
+                <tr>
+
+                    <td>{{ employee.e_id }}</td>
+
+                    <td>{{employee.e_name}}</td>
+
+                    <td>{{employee.e_age}}</td>
+
+
+                    <td>{{employee.e_email}}</td>
+
+                    <td>{{employee.e_contact}}</td>
+
+                    <td>{{employee.e_description}}</td>
+
+                    <td>{{employee.e_img}}</td>
+                    
+
+                    <td>
+
+                        <a href="/edit/{{ employee.id }}">Edit </a>
+
+                        <a href="/delete/{{employee.id}}"> Delete</a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        <br>
+
+        <br>
+
+        <button><a style="color:white;" href="/">Add New Record</a></button>
+
+    </body>
+
+</html>
